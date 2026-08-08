@@ -97,7 +97,7 @@ best_model_name=best_row['model']
 print(best_model_name)
 best_model_config=models[best_model_name]
 print(best_model_config)
-final_model=best_model_config['model']
+final_model=best_model_config['model'].set_params(**best_row['best_params'])
 print(final_model)
 final_model.fit(X,y)
 joblib.dump(final_model,"best_model.pkl")
