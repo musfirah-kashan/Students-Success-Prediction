@@ -53,4 +53,39 @@ print(df_model['part_time_job'])
 
 X=df_model[features]
 y=df_model[target]
-X_train,X_test,y_tarin,y_test=train_test_split(X,y,test_size=0.2)
+X_train,X_test,y_train,y_test=train_test_split(X,y,test_size=0.2)
+
+models={
+    "LinearRegression":{
+        "model":LinearRegression(),
+        "params":{}
+    },
+    "DecisionTree":{
+        "model":DecisionTreeRegressor(),
+        "params":{"max_depth":[3,5,10],"min_samples_split":[2,5]}
+    },
+    "RandomForest":{
+        "model":RandomForestRegressor(),
+        "params":{"n_estimators":[50,100],"max_depth":[5,10]}
+    }
+}
+
+best_models=[]
+for name,config in models.items():
+    print(f"Training {name}")
+    grid=GridSearchCV(config['model'],config['params'],cv=5,scoring='neg_mean_squared_error')
+    grid.fit(X_train,y_train)
+    y_pred=grid.predict(X_test)
+    rmse=np.sqrt(mean_squared_error(y_test,y_pred))
+    r2=r2_score(y_test,y_pred)
+
+    best_models.append({
+        'model':name,
+        'best_params':grid.best_params_,
+        'rmse':rmse,
+        'r2':r2
+    })
+print(best_models)
+res_df=pd.DataFrame(best_models)
+res_df.sort_values(by='r2',ascending=False)
+print(res_df)
