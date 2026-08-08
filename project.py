@@ -2,6 +2,7 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
+import joblib
 from sklearn.preprocessing import LabelEncoder
 from sklearn.model_selection import train_test_split,GridSearchCV
 from sklearn.metrics import mean_squared_error , r2_score
@@ -87,5 +88,18 @@ for name,config in models.items():
     })
 print(best_models)
 res_df=pd.DataFrame(best_models)
-res_df.sort_values(by='r2',ascending=False)
+# res_df.sort_values(by='r2',ascending=False)
 print(res_df)
+best_row=res_df.sort_values(by='rmse').iloc[0]
+print(best_row)
+
+best_model_name=best_row['model']
+print(best_model_name)
+best_model_config=models[best_model_name]
+print(best_model_config)
+final_model=best_model_config['model']
+print(final_model)
+final_model.fit(X,y)
+joblib.dump(final_model,"best_model.pkl")
+predictions = joblib.load('best_model.pkl').predict(X_test)
+print(predictions)
