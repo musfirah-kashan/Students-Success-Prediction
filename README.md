@@ -92,6 +92,15 @@ Or simply try the live deployed version: [students-success-prediction-musfirah.s
 - Add input validation and confidence intervals around predictions
 - Experiment with additional models (e.g. Gradient Boosting, XGBoost)
 
+## 👩‍💻 Author
+
+**Musfirah Kashan**
+Full Stack Web Developer | Data Science & AI/ML 
+
+- 🔗 GitHub: [@musfirah-kashan](https://github.com/musfirah-kashan)
+- 💼 LinkedIn: [musfirah-kashan](https://www.linkedin.com/in/musfirah-kashan-487aa626a/)
+- 📧 Email: musfirah22feb@gmail.com
+
 ## 📄 License
 
 This project is licensed under the **MIT License** — see the [LICENSE](LICENSE) file for details.
