@@ -19,31 +19,31 @@ print(df.columns.tolist)
 # print(df.info())
 # print(df.describe(include='object'))
 categorical_cols=['gender','part_time_job','diet_quality','parental_education_level','internet_quality','extracurricular_participation']
-# for col in categorical_cols:
-#     print(f"value counts for {col}: \n {df[col].value_counts()}")
-# df.hist(bins=30,edgecolor='black')
-# plt.tight_layout()
-# plt.show()
+for col in categorical_cols:
+    print(f"value counts for {col}: \n {df[col].value_counts()}")
+df.hist(bins=30,edgecolor='black')
+plt.tight_layout()
+plt.show()
 
-# for col in categorical_cols:
-#     count=df[col].value_counts()
-#     plt.bar(count.index,count.values)
-#     plt.title(f"Distribution of {col}")
-#     plt.xticks(rotation=45)
-#     plt.show()
+for col in categorical_cols:
+    count=df[col].value_counts()
+    plt.bar(count.index,count.values)
+    plt.title(f"Distribution of {col}")
+    plt.xticks(rotation=45)
+    plt.show()
 
-# num_features=['age','study_hours_per_day','social_media_hours','netflix_hours','attendance_percentage','sleep_hours','exercise_frequency','mental_health_rating','exam_score']
-# for feature in num_features[:-1]:
-#     plt.scatter(df[feature],df['exam_score'])
-#     plt.title(f"{feature} vs Exam Score")
-#     plt.xlabel(feature)
-#     plt.ylabel('Exam Score')
-#     plt.show()
+num_features=['age','study_hours_per_day','social_media_hours','netflix_hours','attendance_percentage','sleep_hours','exercise_frequency','mental_health_rating','exam_score']
+for feature in num_features[:-1]:
+    plt.scatter(df[feature],df['exam_score'])
+    plt.title(f"{feature} vs Exam Score")
+    plt.xlabel(feature)
+    plt.ylabel('Exam Score')
+    plt.show()
 
-# for col in categorical_cols:
-#     sns.boxplot(data=df,x=col,y='exam_score')
-#     plt.title(f"Exam Score by {col}")
-#     plt.show()
+for col in categorical_cols:
+    sns.boxplot(data=df,x=col,y='exam_score')
+    plt.title(f"Exam Score by {col}")
+    plt.show()
 
 features=['study_hours_per_day','attendance_percentage','mental_health_rating','sleep_hours','part_time_job']
 target='exam_score'
