@@ -95,7 +95,7 @@ Or simply try the live deployed version: [students-success-prediction-musfirah.s
 ## 👩‍💻 Author
 
 **Musfirah Kashan**
-Full Stack Web Developer | Data Science & AI/ML 
+Full Stack Web Developer | Data Science | AI / ML
 
 - 🔗 GitHub: [@musfirah-kashan](https://github.com/musfirah-kashan)
 - 💼 LinkedIn: [musfirah-kashan](https://www.linkedin.com/in/musfirah-kashan-487aa626a/)
